@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Node2d/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Node2d/Objects/GlonalNode.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 537.453, 43.9711 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 543.925, 43.5225 )
+
+[node name="Scene" type="Node2D"]
+
+[node name="Player1_body" parent="." instance=ExtResource( 1 )]
+position = Vector2( 796.778, 2290.17 )
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2( 560.193, 2406.14 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Ground"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/KinematicBody2D"]
+position = Vector2( -0.763611, 0.295837 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+margin_left = -543.0
+margin_top = -40.0
+margin_right = 543.0
+margin_bottom = 43.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Ground"]
+position = Vector2( -0.228699, -0.0427246 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Area2D"]
+modulate = Color( 0.952941, 0.0509804, 0.0509804, 1 )
+shape = SubResource( 2 )
+
+[node name="GlonalNode" parent="." instance=ExtResource( 3 )]
+
+[connection signal="pass_position" from="Player1_body" to="GlonalNode" method="_on_Player1_body_pass_position"]
+
+[editable path="Player1_body"]
