@@ -9,6 +9,7 @@ var Gunspeed
 var fire_timer
 
 func _ready():
+	"""Sets teh spawn location"""
 	spawn_location = get_node("Spawn_Location")
 	fire_timer = get_node("Fire_timer")
 	fire_timer.start()
@@ -20,6 +21,8 @@ func _process(delta):
 	
 	
 func _fire_at():
+	"""If fired fire at teh positiona dn angle 
+	predertermeined by the gun nozzel"""
 	if Input.is_action_pressed("Fire_Button") and fire_timer.time_left == 0.0:
 		var bullet = bulletID.instance()
 		get_tree().get_current_scene().add_child(bullet)
@@ -30,12 +33,13 @@ func _fire_at():
 
 
 func _on_KinematicBody2D_pass_speed(Movement_speed):
+	"""Move relative to the speed that the player is going"""
 	var currentRoatation = get_rotation_degrees()
 	
 	if Input.is_action_pressed("Left_Press"):
-		currentRoatation = get_rotation_degrees() - (Movement_speed/450)
+		currentRoatation = get_rotation_degrees() - (Movement_speed/150)
 	elif Input.is_action_pressed("Right_press"):
-		currentRoatation = get_rotation_degrees() + (Movement_speed/450)
+		currentRoatation = get_rotation_degrees() + (Movement_speed/150)
 	else:
 		if currentRoatation < -93:
 			currentRoatation = get_rotation_degrees() + (Movement_speed/225)

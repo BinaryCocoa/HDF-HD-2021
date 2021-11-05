@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Node2d/Enemies/Bugger.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Node2d/Objects/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Node2d/Objects/GlobalNode.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 763.841, 10 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bullet" parent="." instance=ExtResource( 2 )]
+position = Vector2( 321.026, 661.852 )
+
+[node name="GlobalNode" parent="." instance=ExtResource( 3 )]
+position = Vector2( 32.5269, 49.4975 )
+scale = Vector2( 4, 4 )
+
+[node name="Bullet2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 108.894, 657.609 )
+
+[node name="Bugger_01" parent="." instance=ExtResource( 1 )]
+position = Vector2( 927.371, 662.913 )
+
+[node name="Ground" type="KinematicBody2D" parent="."]
+position = Vector2( 574.171, 447.093 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( -16.9706, 286.378 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+margin_left = -778.705
+margin_top = 272.282
+margin_right = -738.705
+margin_bottom = 312.282
+rect_scale = Vector2( 38.2416, 0.621787 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="Bullet2"]
