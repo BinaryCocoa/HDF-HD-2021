@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Node2d/Hud/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Artwork/New Artwork/HudArtwork.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Artwork/New Artwork/health bar.png" type="Texture" id=4]
+
+[node name="HUD" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Display" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Display"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="Display/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 86.7099
+margin_top = -122.353
+margin_right = 580.71
+margin_bottom = -17.353
+value = 100.0
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Display/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -530.41
+margin_top = -110.898
+margin_right = 449.593
+margin_bottom = -44.8984
+rect_scale = Vector2( 0.4, 1.44 )
+custom_constants/separation = 27
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Display/Control/HBoxContainer"]
+margin_right = 308.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Display/Control/HBoxContainer"]
+margin_left = 335.0
+margin_right = 644.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Display/Control/HBoxContainer"]
+margin_left = 671.0
+margin_right = 980.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Display/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -734.5
+margin_top = -152.0
+margin_right = 734.5
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
