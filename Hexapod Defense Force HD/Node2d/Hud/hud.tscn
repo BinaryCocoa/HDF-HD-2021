@@ -20,7 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureProgress" type="TextureProgress" parent="Display/Control"]
+[node name="HealthBar" type="TextureProgress" parent="Display/Control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -35,7 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Display/Control"]
+[node name="PowerUpContainer" type="HBoxContainer" parent="Display/Control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -50,18 +50,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Display/Control/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Display/Control/PowerUpContainer"]
 margin_right = 308.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
 stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="Display/Control/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Display/Control/PowerUpContainer"]
 margin_left = 335.0
 margin_right = 644.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
@@ -70,10 +70,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="Display/Control/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="Display/Control/PowerUpContainer"]
 margin_left = 671.0
 margin_right = 980.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
@@ -82,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect4" type="TextureRect" parent="Display/Control"]
+[node name="HUDCover" type="TextureRect" parent="Display/Control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
