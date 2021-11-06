@@ -15,7 +15,6 @@ var ActorClass
 func _ready():
 	ActorClass = get_child(0)
 	ActorClass.max_health = 4
-	#print(ActorClass.max_health)
 	ActorClass.cur_health = ActorClass.max_health
 	
 	bugTimer = bugTimerStart + randi() % 4

@@ -60,7 +60,6 @@ func _on_Area2D_area_entered(area):
 
 func _on_Area2D_area_exited(area):
 	"""Deliniates what has exited the creatures Area2d and does things baised on that"""
-	#print(area.get_groups())
 	if (area.get_parent().name == "Player1" or area.get_parent().name == "Player2"):
 		is_touching = false
 	
