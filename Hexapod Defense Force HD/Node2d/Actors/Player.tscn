@@ -48,6 +48,7 @@ script = ExtResource( 2 )
 position = Vector2( -2.26318, -14.2483 )
 texture = ExtResource( 3 )
 hframes = 10
+frame = 2
 region_rect = Rect2( 83, 104, 4, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -62,10 +63,9 @@ anims/idle_ani = SubResource( 3 )
 [node name="Dash_timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Gun_modle" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2.84741, -18.0425 )
+[node name="Player_gun" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2, -18 )
 rotation = -1.5708
-scale = Vector2( 5, 6 )
 
 [node name="BorderArea" type="Area2D" parent="."]
 collision_mask = 0
@@ -75,5 +75,5 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -3.90567, -11.9613 )
 shape = SubResource( 4 )
 
-[connection signal="pass_speed" from="." to="Gun_modle" method="_on_KinematicBody2D_pass_speed"]
+[connection signal="pass_speed" from="." to="Player_gun" method="_on_Player1_pass_speed"]
 [connection signal="area_entered" from="BorderArea" to="." method="_on_BorderArea_area_entered"]

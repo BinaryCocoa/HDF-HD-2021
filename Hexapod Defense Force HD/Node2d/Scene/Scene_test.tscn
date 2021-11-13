@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Node2d/Actors/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Node2d/Enemies/Drooper.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Node2d/Objects/GlobalNode.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Node2d/Hud/BackgroundHud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Node2d/Objects/GroundObject.tscn" type="PackedScene" id=5]
@@ -11,10 +10,6 @@
 [node name="BackgroundHud" parent="." instance=ExtResource( 4 )]
 position = Vector2( -3.77548, 0 )
 
-[node name="Drooper" parent="." instance=ExtResource( 2 )]
-position = Vector2( 535.378, 81.5504 )
-stateList = [ [ 1, 2 ], [ 2, 2 ] ]
-
 [node name="GlobalNode" parent="." instance=ExtResource( 3 )]
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
@@ -23,6 +18,5 @@ position = Vector2( 330.834, 851.192 )
 [node name="GroundObject" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1929.45, 652.089 )
 
-[connection signal="pass_position" from="Player1" to="GlobalNode" method="_on_Player1_pass_position"]
-
 [editable path="GlobalNode"]
+[editable path="Player1"]

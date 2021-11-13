@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hexapod Defense Force HD"
+run/main_scene="res://Node2d/Scene/Scene_test.tscn"
 config/icon="res://icon.png"
 
 [autoload]

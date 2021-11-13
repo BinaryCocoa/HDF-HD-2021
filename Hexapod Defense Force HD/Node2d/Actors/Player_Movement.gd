@@ -19,7 +19,6 @@ func _ready():
 	cooldownTimer = get_node("Dash_timer")
 	cooldownTimer.start()
 	emit_signal("pass_max_health",max_health)
-	_take_damage(5)
 
 func _physics_process(delta):
 	"""Calls Calcluate Direction, resets speed if direction not heald
@@ -50,15 +49,15 @@ func Calculate_direction() ->Vector2:
 
 func calculate_Velocity (linear_velocity : Vector2,
 						direction: Vector2,
-						speed : float
+						Mspeed : float
 						) -> Vector2:
 	"""Move the animation and calcluate velocity"""						
 	if !Input.is_action_pressed("Dash") :
-		speed = min(speed,max_speed)
-	emit_signal("pass_speed",speed)
+		Mspeed = min(Mspeed,max_speed)
+	emit_signal("pass_speed",Mspeed)
 	var new_velocity := linear_velocity # set velocity to itself 
 	new_velocity.y += gravity * get_physics_process_delta_time()
-	new_velocity.x = speed * direction.x # update th x position to a speed times direction
+	new_velocity.x = Mspeed * direction.x # update th x position to a speed times direction
 	#play animation as the thing moves
 	if new_velocity.x > 0: # Walk Right
 		get_child(0).scale.x = 1
