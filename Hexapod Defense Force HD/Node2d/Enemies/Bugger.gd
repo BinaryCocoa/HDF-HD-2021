@@ -24,7 +24,7 @@ func _physics_process(delta):
 	else:
 		Animator.play("E01_Falling_anim")
 		gravity()
-	move_and_slide((_velocity*(max_speed/2)),FLOOR_NORMAL)
+	move_and_slide((_velocity*(10/2)),FLOOR_NORMAL)
 	
 	
 
