@@ -1,20 +1,20 @@
 extends "res://Node2d/Actors/StateMachine.gd"
 
-signal OnAlive()
-
 var buggers:PackedScene = preload("res://Node2d/Enemies/Bugger.tscn")
 export var Timervariation = 0
 var bugchild
 export var bugTimerStart = 3
 var bugTimer
+
 var movement_timer = 1
 var movement_array_position = 0
-export var stateList = [[5,.1]]
+export var stateList = []
 var swipe_power = 3
 var ActorClass 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	ActorClass = get_child(0)
 	ActorClass.max_health = 4
 	ActorClass.cur_health = ActorClass.max_health
@@ -26,27 +26,9 @@ func _ready():
 	add_state("Swipe_L",3)
 	add_state("Swipe_R",4)
 	add_state("Idle",5)
-	
-	if get_tree().get_current_scene().get_node("Dropper Spawner"):
-		var DropperSpawner = get_tree().get_current_scene().get_node("Dropper Spawner")
-		DropperSpawner.connect("SendStateList",self,"_on_Dropper_Spawner_SendStateList")
-	else:
-		stateList.append([5,10])
-		
+
 	set_state(stateList[movement_array_position][0])
 	movement_timer = stateList[movement_array_position][1]
-
-func _on_Dropper_Spawner_SendStateList(State, Time):
-	var i = 0
-	if State.size() == stateList.size():
-		pass
-	else:
-		for item in State:
-			if i == 0:
-				stateList[0] = [State[i],Time[i]]
-				i += 1
-			else:
-				stateList.append([State[i],Time[i]])
 
 func dropBug():
 	bugchild = buggers.instance()
@@ -78,20 +60,20 @@ func moveDown(time):
 	set_position(Vector2(get_position().x,get_position().y + 5))
 	if time < 0:
 		_exit_state(states.Down,
-					stateList[movement_array_position][0])
+					stateList[0][movement_array_position])
 	return
 	
 func moveUp(time):
 	set_position(Vector2(get_position().x,get_position().y - 5))
 	if time < 0:
 		_exit_state(states.Up,
-					stateList[movement_array_position][0])
+					stateList[0][movement_array_position])
 	return
 
 func idle(time):
 	if time < 0:
 		_exit_state(states.Idle,
-					stateList[movement_array_position][0])
+					stateList[0][movement_array_position])
 	return
 
 func swipe_Left(time, delta):
@@ -100,7 +82,7 @@ func swipe_Left(time, delta):
 	if time < 0:
 		swipe_power = 3
 		_exit_state(states.Swipe_L,
-					stateList[movement_array_position][0])
+					stateList[0][movement_array_position])
 
 func swipe_Right(time, delta):
 	set_position(Vector2(get_position().x - 8,get_position().y + swipe_power))
@@ -108,20 +90,19 @@ func swipe_Right(time, delta):
 	if time < 0:
 		swipe_power = 3
 		_exit_state(states.Swipe_R,
-					stateList[movement_array_position][0])
+					stateList[0][movement_array_position])
 					
 func _exit_state(old_state, new_state):
-	print(movement_array_position)
-	if movement_array_position+1 == stateList.size():
+	
+	if movement_array_position+1 == len(stateList[0]):
 		movement_array_position = 0
 	else:
 		movement_array_position += 1
+
+	new_state = stateList[0][movement_array_position]
+	movement_timer = stateList[1][movement_array_position]
 	
-	Current_state = stateList[movement_array_position][0]
-	print(Current_state)
-	movement_timer = stateList[movement_array_position][1]
-	#set_state(stateList[movement_array_position][0])
-	#movement_timer = stateList[movement_array_position][1]
+	set_state(new_state)
 
 
 
