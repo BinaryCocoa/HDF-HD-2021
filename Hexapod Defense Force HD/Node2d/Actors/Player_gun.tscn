@@ -4,17 +4,14 @@
 [ext_resource path="res://Artwork/New Artwork/Hexapodgun.png" type="Texture" id=2]
 
 [node name="Player_gun" type="Node2D"]
-position = Vector2( 200, 205.946 )
 rotation = 0.000776887
-scale = Vector2( 5.5, 8 )
 z_index = -1
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 83.0625, -0.709473 )
+position = Vector2( 360.858, -0.925288 )
 rotation = 1.5708
-scale = Vector2( 0.125531, 0.230947 )
 texture = ExtResource( 2 )
 
 [node name="Spawn_Location" type="Node2D" parent="."]
-position = Vector2( 171.758, -0.711715 )
+position = Vector2( 763.858, -1.17171 )

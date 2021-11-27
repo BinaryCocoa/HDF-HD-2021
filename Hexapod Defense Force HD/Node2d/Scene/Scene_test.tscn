@@ -1,22 +1,32 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Node2d/Actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Node2d/Objects/DropperSpawnerNode.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Node2d/Objects/GlobalNode.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Node2d/Hud/BackgroundHud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Node2d/Objects/GroundObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Node2d/Objects/MusicPlayerNode.tscn" type="PackedScene" id=6]
 
 [node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ -2877.73, 8654.19 ]
+}
 
 [node name="BackgroundHud" parent="." instance=ExtResource( 4 )]
 position = Vector2( -3.77548, 0 )
 
 [node name="GlobalNode" parent="." instance=ExtResource( 3 )]
-
-[node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 330.834, 851.192 )
+position = Vector2( 0, -2.51984 )
 
 [node name="GroundObject" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1929.45, 652.089 )
+position = Vector2( 2864.1, 1767.36 )
+
+[node name="Dropper Spawner" parent="." instance=ExtResource( 2 )]
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 6 )]
+
+[node name="Player1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1553.75, 2236.47 )
 
 [editable path="GlobalNode"]
 [editable path="Player1"]

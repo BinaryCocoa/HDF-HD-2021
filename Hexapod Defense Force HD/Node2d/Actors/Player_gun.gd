@@ -1,10 +1,8 @@
 extends Node2D
 
-signal giveRotation(rotationdegrees)
-
 var bulletID : PackedScene = load("res://Node2d/Objects/Bullet.tscn")
 var spawn_location : Node2D
-var allowed_rotation
+var Self_rotation
 var Gunspeed
 var fire_timer
 
@@ -16,7 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_fire_at()
-	"""emit_signal("giveRotation",get_rotation())"""
 	if fire_timer > 0.0:
 		fire_timer -= delta
 	
@@ -29,7 +26,7 @@ func _fire_at():
 		fire_timer =.05
 		var bullet = bulletID.instance()
 		bullet.transform.origin = to_global(Vector2(spawn_location.position.x, spawn_location.position.y))
-		bullet.set_rotation(get_rotation())		
+		bullet.set_rotation(get_rotation()+((randf()-.5)/12))
 		get_tree().get_current_scene().add_child(bullet)
 
 		
@@ -50,3 +47,8 @@ func _on_Player1_pass_speed(Movement_speed):
 			currentRoatation = -90
 			
 	set_rotation_degrees(max(min(0,currentRoatation),-180))
+
+
+func _on_Player1_emit_velocity_x(Velocity):
+	Self_rotation = Velocity * (PI/2) - (PI/2)
+	set_rotation(Self_rotation) 

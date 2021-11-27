@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bug_Army.mp3-53808157ee0d65d3f5aa7b2a3feb661a.mp3str"
+
+[deps]
+
+source_file="res://Music/Bug_Army.mp3"
+dest_files=[ "res://.import/Bug_Army.mp3-53808157ee0d65d3f5aa7b2a3feb661a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Imminent_Attack.mp3-2df3da2fa79cb13ecb4f25d428ca08fe.mp3str"
+
+[deps]
+
+source_file="res://Music/Imminent_Attack.mp3"
+dest_files=[ "res://.import/Imminent_Attack.mp3-2df3da2fa79cb13ecb4f25d428ca08fe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
