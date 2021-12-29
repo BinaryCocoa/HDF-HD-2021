@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Node2d/Actors/Player_gun.gd" type="Script" id=1]
-[ext_resource path="res://Artwork/New Artwork/Hexapodgun.png" type="Texture" id=2]
+[ext_resource path="res://Artwork/Player/Sprites/Hexapodgun.png" type="Texture" id=2]
 
 [node name="Player_gun" type="Node2D"]
 rotation = 0.000776887

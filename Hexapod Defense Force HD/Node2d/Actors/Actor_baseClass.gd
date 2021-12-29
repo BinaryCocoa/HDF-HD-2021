@@ -7,8 +7,7 @@ const FLOOR_NORMAL := Vector2.UP
 
 #public Var Decloration
 var _velocity := Vector2.ZERO
-var actorSpeed := float(0)
-var gravity:= 300.0
+export var max_speed := 600.0
+var gravity:= 0.0
 var max_health
 var cur_health
-

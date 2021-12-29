@@ -21,11 +21,6 @@ func _exit_state(old_state, new_state):
 func set_state(new_state):
 	previous_state = Current_state
 	Current_state = new_state
-	
-	#if previous_state != null:
-	#	_exit_state(previous_state,Current_state)
-	#if new_state != null:
-	#	_enter_state(new_state,previous_state)
 
 func _physics_process(delta):
 	if Current_state != null:

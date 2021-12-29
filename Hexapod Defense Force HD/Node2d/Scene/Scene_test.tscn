@@ -9,24 +9,29 @@
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
+"_edit_horizontal_guides_": [ -40.0, -634.0, -655.0 ],
 "_edit_vertical_guides_": [ -2877.73, 8654.19 ]
 }
 
 [node name="BackgroundHud" parent="." instance=ExtResource( 4 )]
-position = Vector2( -3.77548, 0 )
 
 [node name="GlobalNode" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -2.51984 )
 
 [node name="GroundObject" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2864.1, 1767.36 )
+position = Vector2( 0, -650 )
+z_index = -4096
 
 [node name="Dropper Spawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -6812 )
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 6 )]
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1553.75, 2236.47 )
+position = Vector2( 0, -1477 )
+groundLevel = -1135
+
+[node name="ParticalsNode" parent="Player1/Player Sprite" index="0"]
+visible = false
 
 [editable path="GlobalNode"]
 [editable path="Player1"]

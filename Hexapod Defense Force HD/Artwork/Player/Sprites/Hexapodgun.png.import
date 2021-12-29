@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex"
+path="res://.import/Hexapodgun.png-a1d9a72fe8e4a68c6786259897923c13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Particles/Dust partical.png"
-dest_files=[ "res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex" ]
+source_file="res://Artwork/Player/Sprites/Hexapodgun.png"
+dest_files=[ "res://.import/Hexapodgun.png-a1d9a72fe8e4a68c6786259897923c13.stex" ]
 
 [params]
 

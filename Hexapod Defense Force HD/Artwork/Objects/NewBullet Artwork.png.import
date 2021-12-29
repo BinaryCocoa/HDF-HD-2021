@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex"
+path="res://.import/NewBullet Artwork.png-627e3b6ea832563de3569f5a623357ee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Particles/Dust partical.png"
-dest_files=[ "res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex" ]
+source_file="res://Artwork/Objects/NewBullet Artwork.png"
+dest_files=[ "res://.import/NewBullet Artwork.png-627e3b6ea832563de3569f5a623357ee.stex" ]
 
 [params]
 

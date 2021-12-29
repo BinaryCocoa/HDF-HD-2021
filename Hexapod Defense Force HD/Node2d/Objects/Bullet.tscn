@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Node2d/Objects/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Artwork/New Artwork/NewBullet Artwork.png" type="Texture" id=2]
+[ext_resource path="res://Artwork/Objects/NewBullet Artwork.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 42.7473
