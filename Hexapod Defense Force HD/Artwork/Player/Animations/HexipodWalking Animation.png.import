@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex"
+path="res://.import/HexipodWalking Animation.png-e3cc0abec51d74b03eb056df83ce7965.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Particles/Dust partical.png"
-dest_files=[ "res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex" ]
+source_file="res://Artwork/Player/Animations/HexipodWalking Animation.png"
+dest_files=[ "res://.import/HexipodWalking Animation.png-e3cc0abec51d74b03eb056df83ce7965.stex" ]
 
 [params]
 

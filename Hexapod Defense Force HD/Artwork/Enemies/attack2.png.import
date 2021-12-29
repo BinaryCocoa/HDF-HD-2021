@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex"
+path="res://.import/attack2.png-142b17cdc6ae5dd563fafa4299af114e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Particles/Dust partical.png"
-dest_files=[ "res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex" ]
+source_file="res://Artwork/Enemies/attack2.png"
+dest_files=[ "res://.import/attack2.png-142b17cdc6ae5dd563fafa4299af114e.stex" ]
 
 [params]
 

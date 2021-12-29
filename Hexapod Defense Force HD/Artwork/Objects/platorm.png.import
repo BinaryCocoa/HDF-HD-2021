@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex"
+path="res://.import/platorm.png-fbca90cb8334f9db4c80212bcad73733.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Particles/Dust partical.png"
-dest_files=[ "res://.import/Dust partical.png-265af02ff5b85dae10fa9f8f19805f78.stex" ]
+source_file="res://Artwork/Objects/platorm.png"
+dest_files=[ "res://.import/platorm.png-fbca90cb8334f9db4c80212bcad73733.stex" ]
 
 [params]
 
