@@ -1,68 +1,77 @@
+#///////////////////////////////////////// CREATE LOCAL VARIABLES & SIGNALS /////////////////////////////////////////#
 extends Node2D
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 var Spawner_Bug:PackedScene = preload("res://Node2d/Enemies/Spawner_Bug.tscn")
-var incrementor = 0
-var i = 0
+var Waveincrementor = 0
+var IndividualIncrementor = 0
+var waveCounter= 0
+
 var WavesDict = {
+	"WaveName": "",
 	"DropperTransform": Vector2(),
 	"Amount": -1,
-	"Spawner_Bug_stateList": ['x'][-1],
-	"dropperTimeList": [-1,-1],
+	"StateList": ['x'][-1],
+	"TimerList": [-1,-1],
 	"Timer": -1,
-	"Wavename": ""
 }
-
 var ListofWaves = []
-  
+#//////////////////////////////////////////////// CREATION FINISHED ////////////////////////////////////////////////#
+
+#/////////////////////////////////////////////////// SETUP START ///////////////////////////////////////////////////#
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	WavesDict = {
-		"DropperTransform": Vector2(800,100),
+		"WaveName": "Wave 1",
+		"DropperTransform": Vector2(0,-3000),
 		"Amount": 3,
-		"Spawner_Bug_stateList": [5,1,2,3,4],
-		"dropperTimeList": [1,2,2,2,2],
+		"StateList": ["MoveRight","MoveLeft","MoveDown"],
+		"TimerList": [5,5,2],
 		"Timer": 5,
 		"maxTimer": 5,
-		"Wavename": "Wave 1"
+
 		}
 		
 	ListofWaves.append(WavesDict)
 	WavesDict = {
-		"DropperTransform": Vector2(1000,100),
+		"WaveName": "Wave 2",
+		"DropperTransform": Vector2(200,-3000),
 		"Amount": 5,
-		"Spawner_Bug_stateList": [2,5,1,4,4],
-		"dropperTimeList": [0,1,1,.5,3],
+		"StateList": ["MoveDown","MoveRight"],
+		"TimerList": [10,3],
 		"Timer": 2,
 		"maxTimer": 6,
-		"Wavename": "Wave 2"
 		}
 	ListofWaves.append(WavesDict)
+#///////////////////////////////////////////////// SETUP FINISHED /////////////////////////////////////////////////#
+
+#///////////////////////////////////////////// UPDATE FUNCTIONS START /////////////////////////////////////////////#
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if i < len(ListofWaves):
-		countdown(delta)
+	"""This is a caller for all of the Bug_Spawner units this will be the the most intense
+	call of the script so far if. If the Waves amount """
 	
+	if waveCounter < len(ListofWaves):
+		countdown(ListofWaves[waveCounter],delta)
 	
-func countdown(delta):
-	"""Countdown timer of each creature to spawn"""
-	ListofWaves[incrementor]["Timer"] = ListofWaves[incrementor]["Timer"] - delta
-	if ListofWaves[incrementor]["Timer"] < 0:
-		spawn_Dropper()
-		ListofWaves[incrementor]["Timer"] = ListofWaves[incrementor]["maxTimer"]
-	
+func countdown(wave,delta):
+	"""When called this reduces the timer for each individual spawn of a wave, 
+	in addition if the timer is 0 spawn A bug Dropper"""
+	wave.Timer -= delta
+	if wave.Timer < 0:
+		spawn_Dropper(wave)
+		wave.Timer = wave.maxTimer
 
-func spawn_Dropper():
-	if ListofWaves[incrementor]["Amount"] > 0:
-		var DropperChild = Spawner_Bug.instance()
-		DropperChild.transform.origin = to_global(Vector2(ListofWaves[incrementor]["DropperTransform"].x, ListofWaves[incrementor]["DropperTransform"].y ))
-		var sendlist = [ListofWaves[incrementor]["Spawner_Bug_stateList"],ListofWaves[incrementor]["dropperTimeList"]]
-		DropperChild.stateList = sendlist
-		get_tree().current_scene.add_child(DropperChild)
 
-		ListofWaves[incrementor]["Amount"] -= 1
-		
-	if ListofWaves.size() + 1 == incrementor:
-		incrementor+=1
+func spawn_Dropper(wave):
+	var Spawner_Bug_Child = Spawner_Bug.instance()
+	Spawner_Bug_Child.StateList = wave.StateList
+	Spawner_Bug_Child.TimeList = wave.TimerList
+	Spawner_Bug_Child.transform.origin = Vector2(wave.DropperTransform.x,wave.DropperTransform.y)#to_global(Vector2(wave.DropperTransform.x,wave.DropperTransform.y))
+	get_tree().current_scene.add_child(Spawner_Bug_Child)
+	
+	wave.Amount -= 1
+	if wave.Amount == 0:
+		waveCounter += 1

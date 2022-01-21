@@ -4,8 +4,8 @@ extends Node2D
 var bulletID : PackedScene = load("res://Node2d/Objects/Bullet.tscn")
 var spawn_location : Node2D
 var Self_rotation
-var Gunspeed
 var fire_timer
+var player_health = 100
 #//////////////////////////////////////////////// CREATION FINISHED ////////////////////////////////////////////////#
 
 #/////////////////////////////////////////////////// SETUP START ///////////////////////////////////////////////////#
@@ -35,8 +35,9 @@ func _initilize_variables():
 func _process(delta):
 	"""In the physics process we will call function that need to be updated every frame. 
 	IE Reducing the timer if its larger than 0, or firing the button if pressed"""
-	decreese_timer(delta)
-	_fire_at()
+	if player_health > 0:
+		decreese_timer(delta)
+		_fire_at()
 
 func decreese_timer(delta):
 	"""Reduce the Timer if it is larger than 0. The timer is updated only if a bullet is 
@@ -69,3 +70,8 @@ func _on_Player1_emit_velocity_x(XVelocity_Percentage):
 	set_rotation(Self_rotation)
 	
 #//////////////////////////////////////////////// SIGNAL FUNCTIONS END ////////////////////////////////////////////////#
+
+
+func _on_Player1_pass_cur_health(Self_cur_health):
+	player_health = Self_cur_health
+	pass # Replace with function body.

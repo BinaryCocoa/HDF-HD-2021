@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Node2d/Actors/Player_Camera.gd" type="Script" id=1]
+
+[node name="Player Camera" type="Camera2D"]
+modulate = Color( 1, 0.141176, 0.141176, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -4.0564, -745.315 )
+current = true
+zoom = Vector2( 1.2, 1.2 )
+limit_left = -5750
+limit_right = 5750
+limit_bottom = 0
+smoothing_enabled = true
+offset_v = -1.0
+drag_margin_left = 0.4
+drag_margin_right = 0.4
+script = ExtResource( 1 )

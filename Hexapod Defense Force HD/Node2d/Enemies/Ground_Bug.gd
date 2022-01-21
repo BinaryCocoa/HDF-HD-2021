@@ -1,14 +1,16 @@
 #///////////////////////////////////////// CREATE LOCAL VARIABLES & SIGNALS /////////////////////////////////////////#
 extends "res://Node2d/Actors/Enemy_Base.gd"
+
 #Create signals that will be sent out later
 signal damage_player(damage)
 signal Updated_points(points)
+
 #Create local global variables for objects
 var player_position = Vector2(0,0)
 var animator : AnimationPlayer
 var is_touching = false
-var floor_value = 0.00
 var has_touched_down = false
+var floor_value
 #//////////////////////////////////////////////// CREATION FINISHED ////////////////////////////////////////////////#
 
 #/////////////////////////////////////////////////// SETUP START ///////////////////////////////////////////////////#
@@ -43,7 +45,7 @@ func _initilize_variables():
 	Enemy_points = 10
 	max_health = 2
 	cur_health = max_health
-	floor_value = floor_value + (rand_range(-200,400))
+	floor_value = rand_range(-150,-600)
 	self.z_index = round(floor_value)
 #///////////////////////////////////////////////// SETUP FINISHED /////////////////////////////////////////////////#
 
@@ -51,12 +53,11 @@ func _initilize_variables():
 func _physics_process(delta):
 	"""In the physics process we will call function that need to be updated
 	   every frame. IE: Moveing down because of gravity or moving towards the player"""
-	if to_global(self.position).y <= floor_value and has_touched_down == false:
+	if self.position.y <= floor_value and has_touched_down == false:
 		gravity(delta)
 	elif is_touching != true:
-		#yield(get_tree().create_timer(.01),"timeout")
 		_velocity = direction(delta)
-		move_and_slide((_velocity*(10/2))) # Move and slide adds gravity indpendent of the Gravity function need to change it
+		set_position(Vector2(get_position().x+_velocity.x,get_position().y)) # Move and slide adds gravity indpendent of the Gravity function need to change it
 	else:
 		que_damage()
 		
@@ -83,18 +84,18 @@ func direction(delta)-> Vector2:
 	"""Set the direction of the creature to make it follow the player and flip its
 	sprite in tandam"""
 	reset_Animation("E01_Walking_anim")
-		
+	#var new_direction = Vector2(self.position.x,self.position.y)
 	var new_direction = Vector2(self.position.x - player_position.x,player_position.y) 
 									#Later will updated this to target position x to make it so that 
 									#Ground Bugs can target Player 2 Or the worker droids 
-									
+
 	if is_touching == false:				#Only Change if the is touching variable is true
 		if new_direction.x <= 1:
-			new_direction.x = +2000*delta		#This is a repersnetation of the speed on the Horizontal Axis
+			new_direction.x = +800*delta		#This is a repersnetation of the speed on the Horizontal Axis
 ##__Note: shold probably change to an actual speed variable__
 			$Sprite.scale.x = -1			#This flips the sprite to the Left
 		elif new_direction.x > 1:
-			new_direction.x = -2000*delta		#This is a representation of the speed on the Horizontal Axis 
+			new_direction.x = -800*delta		#This is a representation of the speed on the Horizontal Axis 
 ##__Note: shold probably change to an actual speed variable__
 			$Sprite.scale.x = 1				#This flips the sprie to the Right
 	else:
@@ -138,5 +139,3 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		
 	
 #///////////////////////////////////////// SIGNAL FUNCTIONS END//////////////////////////////////////////////////////#
-
-
