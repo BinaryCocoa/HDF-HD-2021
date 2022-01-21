@@ -35,6 +35,5 @@ func _on_Dropper_Spawner_SendStateList(State, Time):
 	emit_signal("FinalSendStateMachine",State,Time)
 
 func updatePoints(points):
-	print('O')
 	pointTotal += points
 	emit_signal("Updated_points",pointTotal)

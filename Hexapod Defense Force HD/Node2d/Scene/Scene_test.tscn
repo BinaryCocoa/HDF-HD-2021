@@ -1,19 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Node2d/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Node2d/Objects/DropperSpawnerNode.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Node2d/Objects/GlobalNode.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Node2d/Hud/BackgroundHud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Node2d/Objects/ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Node2d/Objects/GroundObject.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Node2d/Objects/MusicPlayerNode.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Node2d/Objects/Player Camera.tscn" type="PackedScene" id=7]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ -40.0, -634.0, -655.0 ],
-"_edit_vertical_guides_": [ -2877.73, 8654.19 ]
+"_edit_horizontal_guides_": [ -140.0 ],
+"_edit_vertical_guides_": [ 8654.19, -5790.0, 5759.0, -7942.0 ]
 }
 
-[node name="BackgroundHud" parent="." instance=ExtResource( 4 )]
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+offset = Vector2( 0, -400 )
+transform = Transform2D( 1, 0, 0, 1, 0, -400 )
 
 [node name="GlobalNode" parent="." instance=ExtResource( 3 )]
 
@@ -21,17 +24,19 @@ __meta__ = {
 position = Vector2( 0, -650 )
 z_index = -4096
 
-[node name="Dropper Spawner" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -6812 )
-
 [node name="MusicPlayer" parent="." instance=ExtResource( 6 )]
 
+[node name="Wave Spawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -6812 )
+
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -1477 )
-groundLevel = -1135
+position = Vector2( 0, -606 )
+groundLevel = -600
 
 [node name="ParticalsNode" parent="Player1/Player Sprite" index="0"]
 visible = false
+
+[node name="Player Camera" parent="." instance=ExtResource( 7 )]
 
 [editable path="GlobalNode"]
 [editable path="Player1"]

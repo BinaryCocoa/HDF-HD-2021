@@ -1,13 +1,98 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Node2d/Actors/Player_gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Node2d/Actors/Player_Script.gd" type="Script" id=2]
-[ext_resource path="res://Artwork/Player/Animations/HexipodWalking Animation.png" type="Texture" id=3]
+[ext_resource path="res://Artwork/Player/Walking Spritghtsheet.png" type="Texture" id=3]
 [ext_resource path="res://Node2d/Objects/ParticalsNode.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Node2d/Actors/Player_Camera.gd" type="Script" id=5]
+[ext_resource path="res://Artwork/Player/Resized Skiding Spritesheet.png" type="Texture" id=5]
+[ext_resource path="res://Artwork/Player/spritesheet.png" type="Texture" id=6]
+[ext_resource path="res://Artwork/Player/Resized Death Spritesheet.png" type="Texture" id=7]
 
-[sub_resource type="Animation" id=2]
-loop = true
+[sub_resource type="StreamTexture" id=7]
+flags = 4
+load_path = "res://.import/spritesheet.png-2bcaf447803f7c4b7ac1c30002d64aea.stex"
+
+[sub_resource type="Animation" id=8]
+resource_name = "Dying_ani"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Skidding_ani"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player Sprite:frame")
 tracks/0/interp = 1
@@ -15,43 +100,139 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player Sprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
 [sub_resource type="Animation" id=3]
+length = 0.8
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Player Sprite:frame")
+tracks/0/path = NodePath("Player Sprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 572.059, 447.18 )
+extents = Vector2( 209, 202 )
 
 [node name="Player1" type="KinematicBody2D" groups=["Players"]]
 collision_mask = 4
 script = ExtResource( 2 )
+groundLevel = -10
 
 [node name="Player Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
-hframes = 10
-frame = 2
+position = Vector2( -6, -21 )
+scale = Vector2( 0.998224, 1.08297 )
+texture = SubResource( 7 )
+hframes = 8
 region_rect = Rect2( 83, 104, 4, 2 )
 
 [node name="ParticalsNode" parent="Player Sprite" instance=ExtResource( 4 )]
-position = Vector2( -640.039, 451.052 )
+visible = false
+position = Vector2( -228.406, 150.512 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle_ani"
+anims/Dying_ani = SubResource( 8 )
+anims/RESET = SubResource( 6 )
+anims/Skidding_ani = SubResource( 5 )
 anims/Walking_ani = SubResource( 2 )
 anims/idle_ani = SubResource( 3 )
 
@@ -59,7 +240,7 @@ anims/idle_ani = SubResource( 3 )
 one_shot = true
 
 [node name="Player_gun" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2, -232.961 )
+position = Vector2( -2, -105 )
 rotation = -1.5708
 
 [node name="Player Collision Area" type="Area2D" parent="." groups=["Players"]]
@@ -67,23 +248,11 @@ collision_mask = 0
 
 [node name="Player Collision" type="CollisionShape2D" parent="Player Collision Area"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -3.90567, -67.4605 )
+position = Vector2( -17, -14 )
 shape = SubResource( 4 )
 
-[node name="Player Camera" type="Camera2D" parent="."]
-modulate = Color( 1, 0.141176, 0.141176, 1 )
-self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -4.0564, -745.315 )
-current = true
-zoom = Vector2( 1.5, 1.5 )
-limit_bottom = 0
-smoothing_enabled = true
-offset_v = -1.0
-drag_margin_left = 0.4
-drag_margin_right = 0.4
-script = ExtResource( 5 )
-
-[node name="Shift_Tween" type="Tween" parent="Player Camera"]
-
 [connection signal="emit_velocity_x" from="." to="Player_gun" method="_on_Player1_emit_velocity_x"]
+[connection signal="pass_cur_health" from="." to="Player_gun" method="_on_Player1_pass_cur_health"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 [connection signal="area_entered" from="Player Collision Area" to="." method="_on_BorderArea_area_entered"]

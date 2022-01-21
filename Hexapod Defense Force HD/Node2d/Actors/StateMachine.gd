@@ -2,7 +2,8 @@ extends Node2D
 
 var Current_state = null
 var previous_state = null
-var states = {}
+var timer
+var states = ["Idle","MoveUp","MoveDown","MoveLeft","MoveRight"]
 
 onready var parent = get_parent()
 
@@ -15,11 +16,11 @@ func _get_transion(delta):
 func _enter_state(new_state, old_state):
 	pass
 
-func _exit_state(old_state, new_state):
+func _exit_state(ncurrent_state):
 	pass
 
 func set_state(new_state):
-	previous_state = Current_state
+	#previous_state = Current_state
 	Current_state = new_state
 
 func _physics_process(delta):
@@ -29,5 +30,5 @@ func _physics_process(delta):
 		if transition != null:
 			set_state(transition)
 
-func add_state(state_name, index):
-	states[state_name] = index
+func add_state(state_name):
+	states.append(state_name)

@@ -1,15 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Node2d/Objects/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Artwork/Objects/NewBullet Artwork.png" type="Texture" id=2]
+[ext_resource path="res://Artwork/Objects/bullet.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 42.7473
-height = 62.9385
+radius = 16.9999
+height = 22.0001
 
-[node name="Bullet" type="Area2D" groups=[
-"Bullets",
-]]
+[node name="Bullet" type="Area2D" groups=["Bullets"]]
 collision_layer = 0
 collision_mask = 15
 script = ExtResource( 1 )

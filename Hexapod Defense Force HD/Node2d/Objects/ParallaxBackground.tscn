@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ParallaxBackgroundController.gd" type="Script" id=1]
+[ext_resource path="res://Artwork/Objects/BackgroundArt.png" type="Texture" id=2]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource( 1 )
+
+[node name="Background" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( -48.9999, -1422 )
+scale = Vector2( 2.50463, 2.50463 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 7680, 1080 )
